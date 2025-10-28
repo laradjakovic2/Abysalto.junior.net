@@ -74,7 +74,7 @@ namespace AbySalto.Junior.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<double> CalculateTotalPriceAsync(List<CreateOrderArticleDto> orderArticles)
+        public async Task<decimal> CalculateTotalPriceAsync(List<CreateOrderArticleDto> orderArticles)
         {
             var articleIds = orderArticles.Select(a => a.ArticleId).ToList();
 

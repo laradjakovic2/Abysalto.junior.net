@@ -22,9 +22,9 @@ namespace AbySalto.Junior.Infrastructure.Data
             {
                 var articles = new List<Article>
                 {
-                    new() {  Name = "Čokolada", Price = 2.5, CurrencyISO="EUR" },
-                    new() { Name = "Sok od naranče", Price = 1.8, CurrencyISO="EUR" },
-                    new() { Name = "Kruh", Price = 1.2, CurrencyISO="EUR" }
+                    new() {  Name = "Čokolada", Price = 2.5m, CurrencyISO="EUR" },
+                    new() { Name = "Sok od naranče", Price = 1.8m, CurrencyISO="EUR" },
+                    new() { Name = "Kruh", Price = 1.2m, CurrencyISO="EUR" }
                 };
 
                 await context.Articles.AddRangeAsync(articles);

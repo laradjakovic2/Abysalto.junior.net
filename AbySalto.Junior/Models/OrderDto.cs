@@ -13,7 +13,7 @@ namespace AbySalto.Junior.Models
         public required string Address { get; set; }
         public required string Phone { get; set; }
         public string? Remark { get; set; }
-        public double TotalPrice { get; set; }
+        public decimal TotalPrice { get; set; }
 
         public required string CurrencyISO { get; set; }
 

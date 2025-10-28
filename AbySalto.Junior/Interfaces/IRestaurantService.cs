@@ -10,6 +10,6 @@ namespace AbySalto.Junior.Interfaces
 
         public Task ChangeStatus(int orderId, OrderStatus status);
 
-        public Task<double> CalculateTotalPriceAsync(List<CreateOrderArticleDto> orderArticles);
+        public Task<decimal> CalculateTotalPriceAsync(List<CreateOrderArticleDto> orderArticles);
     }
 }
