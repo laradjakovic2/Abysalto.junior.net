@@ -17,8 +17,6 @@ public class Order
 
     public required string CurrencyISO { get; set; }
 
-    public required User User { get; set; }
-
     public ICollection<OrderArticle> OrderArticles { get; set; } = [];
 }
 

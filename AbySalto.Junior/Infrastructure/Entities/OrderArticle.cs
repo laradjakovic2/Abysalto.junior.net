@@ -6,9 +6,9 @@
         public int OrderId { get; set; }
         public int ArticleId { get; set; }
         public int Quantity { get; set; }
-        public int OrderPrice { get; set; }
+        public double OrderPrice { get; set; }
 
-        public required Order Order { get; set; }
-        public required Article Article { get; set; }
+        public Order? Order { get; set; }
+        public Article? Article { get; set; }
     }
 }
