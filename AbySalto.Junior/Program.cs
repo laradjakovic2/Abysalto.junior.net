@@ -3,6 +3,8 @@ using AbySalto.Junior.Infrastructure.Data;
 using AbySalto.Junior.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using AbySalto.Junior.Services;
+using AbySalto.Junior.Interfaces;
 
 namespace AbySalto.Junior
 {
@@ -23,6 +25,8 @@ namespace AbySalto.Junior
 
             builder.Services.AddDbContext<IApplicationDbContext, ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<IRestaurantService, RestaurantService>();
+
 
             var app = builder.Build();
 
@@ -37,7 +41,7 @@ namespace AbySalto.Junior
                 catch (Exception ex)
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "Greška prilikom seeding procesa baze podataka.");
+                    logger.LogError(ex, "Error while seeding db.");
                 }
             }
 
