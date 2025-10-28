@@ -1,18 +1,20 @@
-﻿ # 🧩 .NET Web API – Restaurant App
+﻿# 🧩 .NET Web API – Restaurant App
 
-Ovo je jednostavna .NET 8 Web API aplikacija koja demonstrira osnovne principe:
-- Entity Framework Core (Code First)
-- Seed inicijalnih podataka
-- Sortiranje
-- Pokretanje kroz lokalni SQL Server
+Ovo je jednostavna .NET 8 Web API aplikacija za upravljanje narudžbama restorana koja demonstrira:
+
+- Dohvaćanje i sortiranje narudžbi korisnika
+- Kreiranje i upravljanje narudžbama
 
 ---
+
 ## ⚙️ 1. Za pokretanje je potrebno
+
 - Visual Studio
 
 ## ⚙️ 2. Konfiguracija connection stringa
 
 U `secrets.json` zaljepiti sljedeći connection string za spajanje na bazu:
+
 ```json
 {
   "ConnectionStrings": {
@@ -21,11 +23,8 @@ U `secrets.json` zaljepiti sljedeći connection string za spajanje na bazu:
 }
 ```
 
-## ⚙️ Pokrenutanje
-- pokrenuti aplikaciju putem 'https' u Visual Studiu ili putem cmd-a:
-`
-dotnet ef database update
-dotnet run
-`
-- aplikacija je dostupna na localhost:7056
+## ⚙️ 3. Pokrenutanje
 
+- pokrenuti aplikaciju u Visual Studiu
+- aplikacija je dostupna na: https://localhost:7056
+- swagger dokumentacija dostupna je na: https://localhost:7056/index.html
