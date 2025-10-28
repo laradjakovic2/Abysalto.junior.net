@@ -63,13 +63,7 @@ namespace AbySalto.Junior.Services
 
         public async Task ChangeStatus(int orderId, OrderStatus status)
         {
-            var order = await _context.Orders.FindAsync(orderId);
-
-            if (order == null)
-            {
-                throw new KeyNotFoundException($"Order with ID {orderId} not found.");
-            }
-
+            var order = await _context.Orders.FindAsync(orderId) ?? throw new KeyNotFoundException($"Order with ID {orderId} not found.");
             order.Status = status;
             await _context.SaveChangesAsync();
         }
