@@ -12,12 +12,21 @@ namespace AbySalto.Junior.Controllers
         private IRestaurantService _restaurantService { get; set; } = restaurantService;
 
         [HttpGet("users/{userId}/orders")]
-        public async Task<IActionResult> GetAll(
+        public async Task<IActionResult> GetOrdersForUser(
             int userId,
             [FromQuery] string sortBy = "Id",
             [FromQuery] string sortOrder = "asc")
         {
             var result = await _restaurantService.GetOrdersForUser(userId, sortBy, sortOrder);
+            return Ok(result);
+        }
+
+        [HttpGet("articles")]
+        public async Task<IActionResult> GetAllArticles(
+            [FromQuery] string sortBy = "Id",
+            [FromQuery] string sortOrder = "asc")
+        {
+            var result = await _restaurantService.GetAllArticles(sortBy, sortOrder);
             return Ok(result);
         }
 
@@ -29,7 +38,7 @@ namespace AbySalto.Junior.Controllers
         }
 
         [HttpPut("orders/{orderId}/status")]
-        public async Task<IActionResult> UpdateStatus(int orderId, [FromBody] UpdateOrderStatusDto orderStatus)
+        public async Task<IActionResult> UpdateOrderStatus(int orderId, [FromBody] UpdateOrderStatusDto orderStatus)
         {
             try
             {

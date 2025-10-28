@@ -31,17 +31,30 @@ namespace AbySalto.Junior.Services
                 OrderArticles = o.OrderArticles.Select(a => new OrderArticleDto { Id= a.Id, OrderId = a.OrderId, ArticleId = a.ArticleId, Quantity=a.Quantity, OrderPrice=a.OrderPrice}).ToList()
             }).ToListAsync();
         }
+
+        public async Task<List<ArticleDto>> GetAllArticles(string? sortBy, string? sortOrder)
+        {
+            var query = _context.Articles.OrderBy(sortBy, sortOrder);
+
+            return await query.Select(o => new ArticleDto
+            {
+                Id = o.Id,
+                Name = o.Name,
+                Price = o.Price,
+                CurrencyISO=o.CurrencyISO,
+            }).ToListAsync();
+        }
+
         public async Task CreateOrder(CreateOrderDto request)
         {
             var order = new Order
             {
-                Id = request.Id,
                 UserId = request.UserId,
                 OrderTime = request.OrderTime,
                 Phone = request.Phone,
                 CurrencyISO = request.CurrencyISO,
                 Address = request.Address,
-                Status = request.Status,
+                Status = OrderStatus.Waiting,
                 Remark = request.Remark,
                 TotalPrice = await CalculateTotalPriceAsync(request.OrderArticles),
                 PaymentType = request.PaymentType,
@@ -68,7 +81,8 @@ namespace AbySalto.Junior.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<decimal> CalculateTotalPriceAsync(List<CreateOrderArticleDto> orderArticles)
+        #region Helpers
+        private async Task<decimal> CalculateTotalPriceAsync(List<CreateOrderArticleDto> orderArticles)
         {
             var articleIds = orderArticles.Select(a => a.ArticleId).ToList();
 
@@ -82,5 +96,6 @@ namespace AbySalto.Junior.Services
 
             return totalPrice;
         }
+        #endregion
     }
 }

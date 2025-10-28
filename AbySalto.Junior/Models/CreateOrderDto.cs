@@ -4,9 +4,7 @@ namespace AbySalto.Junior.Models
 {
     public class CreateOrderDto
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
-        public OrderStatus Status { get; set; }
         public required DateTime OrderTime { get; set; }
         public PaymentType PaymentType { get; set; }
         public required string Address { get; set; }
