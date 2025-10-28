@@ -19,6 +19,13 @@ U `secrets.json` zaljepiti sljedeći connection string za spajanje na bazu:
     "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=RestaurantDB;Trusted_Connection=True;MultipleActiveResultSets=true"
   }
 }
+```
 
-## ⚙️ Pokrenuti aplikaciju putem 'https' u Visual Studiu
+## ⚙️ Pokrenutanje
+- pokrenuti aplikaciju putem 'https' u Visual Studiu ili putem cmd-a:
+`
+dotnet ef database update
+dotnet run
+`
+- aplikacija je dostupna na localhost:7056
 
