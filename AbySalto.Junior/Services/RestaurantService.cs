@@ -14,16 +14,7 @@ namespace AbySalto.Junior.Services
 
         public async Task<List<OrderDto>> GetOrdersForUser(int userId, string? sortBy, string? sortOrder)
         {
-            var query = _context.Orders.Where(o => o.UserId == userId).OrderBy(sortBy, sortOrder); ;
-
-            /*query = (sortBy?.ToLower(), sortOrder?.ToLower()) switch
-            {
-                ("totalprice", "asc") => query.OrderBy(o => o.TotalPrice),
-                ("totalprice", "desc") => query.OrderByDescending(o => o.TotalPrice),
-                ("ordertime", "asc") => query.OrderBy(o => o.OrderTime),
-                ("ordertime", "desc") => query.OrderByDescending(o => o.OrderTime),
-                _ => query.OrderBy(o => o.Id),
-            };*/
+            var query = _context.Orders.Where(o => o.UserId == userId).OrderBy(sortBy, sortOrder);
 
             return await query.Select(o => new OrderDto
             {
