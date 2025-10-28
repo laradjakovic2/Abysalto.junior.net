@@ -1,6 +1,6 @@
 ﻿# 🧩 .NET Web API – Restaurant App
 
-Ovo je jednostavna .NET 8 Web API aplikacija za upravljanje narudžbama restorana koja demonstrira:
+Ovo je jednostavna .NET 9 Web API aplikacija za upravljanje narudžbama restorana koja demonstrira:
 
 - Dohvaćanje i sortiranje narudžbi korisnika
 - Kreiranje i upravljanje narudžbama
